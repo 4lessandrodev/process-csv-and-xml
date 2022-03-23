@@ -8,7 +8,7 @@ export const writeOnLocal = new Writable({
 
 		const fileName = randomBytes(3).toString('hex');
 		
-		const path = resolve(__dirname, 'data', `result-${fileName}.json`);
+		const path = resolve(__dirname, '..', 'data', `result-${fileName}.json`);
 		const local = createWriteStream(path, 'utf-8');
 		
 		local.write(chunk, 'utf-8');

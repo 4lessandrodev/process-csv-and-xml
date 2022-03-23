@@ -1,4 +1,4 @@
-import { ICSVFields, ITransactionModel, IXMLFields } from "./interfaces"
+import { ICSVFields, ITransactionModel, IXMLFields } from "../interfaces"
 
 export const translateCsvFields = (data: ICSVFields): ITransactionModel => {
 	return {

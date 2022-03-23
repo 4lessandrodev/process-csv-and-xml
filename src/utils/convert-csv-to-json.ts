@@ -1,5 +1,5 @@
 import csv from "csvtojson";
-import { IResult, ITransactionModel } from "./interfaces";
+import { IResult, ITransactionModel } from "../interfaces";
 import { translateCsvFields } from "./translate-fields";
 
 export const convertCsvToJson = async (chunk: string): Promise<IResult> => {

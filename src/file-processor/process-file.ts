@@ -2,8 +2,8 @@ import { ReadStream } from "fs";
 import { transformFile } from "./transform-file";
 import { promisify } from 'util';
 import { pipeline } from 'stream';
-import writeOnLocal from "./write-on-local";
-import writeOnMongo from "./write-on-mongo";
+import writeOnLocal from "../db/write-on-local";
+import writeOnMongo from "../db/write-on-mongo";
 
 const pipelineAsync = promisify(pipeline);
 

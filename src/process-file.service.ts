@@ -1,8 +1,8 @@
 import { ReadStream } from "fs";
-import Mongo from "./mongo";
-import processFile from "./process-file";
+import Mongo from "./db/mongo";
+import processFile from "./file-processor/process-file";
 
-export const main = async (file: ReadStream, destination: 'Local' | 'Mongo'): Promise<boolean> => {
+export const processFileService = async (file: ReadStream, destination: 'Local' | 'Mongo'): Promise<boolean> => {
 	try {
 		const isLocal = destination === 'Local';
 

@@ -1,5 +1,5 @@
 import { resolve } from 'path';
-import readFile from '../read-file';
+import readFile from '../file-processor/read-file';
 
 describe('read-file', () => {
 	it('should read a csv file with success', async () => {

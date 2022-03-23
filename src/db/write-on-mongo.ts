@@ -1,5 +1,5 @@
 import { Writable } from "stream";
-import { IResult } from "./interfaces";
+import { IResult } from "../interfaces";
 import Mongo from "./mongo";
 
 export const writeOnMongo = new Writable({

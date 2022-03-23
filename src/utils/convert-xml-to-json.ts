@@ -1,5 +1,5 @@
 import { xml2json } from "xml-js";
-import { IResult, IXmlToJsonPayload } from "./interfaces";
+import { IResult, IXmlToJsonPayload } from "../interfaces";
 import { translateXmlFields } from "./translate-fields";
 
 export const convertXmlToJson = async (chunk: string): Promise<IResult> => {

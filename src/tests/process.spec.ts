@@ -1,13 +1,13 @@
 import { resolve } from "path";
-import { main } from "../main"
-import readFile from "../read-file";
+import { processFileService } from "../process-file.service"
+import readFile from "../file-processor/read-file";
 
 describe('process', () => {
 	it('should process file xml to local with success', async () => {
 		
 		const file = await readFile(resolve(__dirname, '..', 'data', 'sample.xml'));
 
-		const result = await main(file, 'Local');
+		const result = await processFileService(file, 'Local');
 		expect(result).toBeTruthy();
 	});
 
@@ -15,7 +15,7 @@ describe('process', () => {
 		
 		const file = await readFile(resolve(__dirname, '..', 'data', 'sample.csv'));
 		
-		const result = await main(file, 'Mongo');		
+		const result = await processFileService(file, 'Mongo');		
 		expect(result).toBeTruthy();
 	});
 });
