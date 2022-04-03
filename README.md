@@ -11,23 +11,57 @@ Read file, transform data and save to local or to mongo atlas
 - Run the test `yarn test`
 - Run the project `yarn dev`
 
-### Route
+### Route POST
 
 destination: Local or Mongo
-
 ```
-
 POST http://localhost:3000/upload
-
+```
 BODY form-data
+
+> the sample files you can find on `src/data`
+```
 {
   file: sample.csv
   destination: Local
 }
-
+```
 PAYLOAD
+```json
 {
   "success": true
+}
+```
+### Route GET
+
+the get route find documents on mongodb
+
+```
+GET http://localhost:3000/upload
+```
+```json
+{
+  {
+    "docs": [
+        {
+            "_id": "624a0077642d164fd3dcda65",
+            "Transaction": "Invoice0000001",
+            "Amount": "1,000.00",
+            "CurrencyCode": "USD",
+            "TransactionDate": "20/02/2019 12:33:16",
+            "Status": "Approved"
+        },
+        {
+            "_id": "624a0077642d164fd3dcda66",
+            "Transaction": "Invoice0000002",
+            "Amount": "300.00",
+            "CurrencyCode": "USD",
+            "TransactionDate": "21/02/2019 02:04:59",
+            "Status": "Failed"
+        }
+    ]
+  },
+  "count": 12
 }
 ```
 

@@ -4,7 +4,7 @@ import { translateXmlFields } from "./translate-fields";
 
 export const convertXmlToJson = async (chunk: string): Promise<IResult> => {
 
-	const resultString = xml2json(chunk, { compact: true, trim: true, textKey: 'value' });
+	const resultString = await xml2json(chunk, { compact: true, trim: true, textKey: 'value' });
 
 	const jsonData: IXmlToJsonPayload = JSON.parse(resultString);
 

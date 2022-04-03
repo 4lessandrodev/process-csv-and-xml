@@ -1,4 +1,3 @@
-// import { XMLParser } from "fast-xml-parser";
 import { xml2json } from 'xml-js';
 
 describe('xml-converter', () => {
