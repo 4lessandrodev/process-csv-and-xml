@@ -79,5 +79,5 @@ Any question feel free to message me [Linkedin](https://www.linkedin.com/in/ales
 
 #### References
 
-[node doc](https://nodejs.org/docs/latest-v15.x/api/stream.html#stream_event_pipe)
-[node-js-stream](https://www.geeksforgeeks.org/node-js-stream-pipeline-method/)
+- [node doc](https://nodejs.org/docs/latest-v15.x/api/stream.html#stream_event_pipe)
+- [node-js-stream](https://www.geeksforgeeks.org/node-js-stream-pipeline-method/)
