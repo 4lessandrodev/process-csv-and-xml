@@ -1,0 +1,1 @@
+{"data":[{"Transaction":"Inv00001","Amount":"200.00","CurrencyCode":"USD","TransactionDate":"2019-01-23T13:45:10","Status":"Done"},{"Transaction":"Inv00002","Amount":"10000.00","CurrencyCode":"EUR","TransactionDate":"2019-01-24T16:09:15","Status":"Rejected"}]}

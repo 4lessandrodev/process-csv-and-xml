@@ -14,9 +14,9 @@ export class Mongo {
 	protected static readonly URI = `${MONGO_DB_PREFIX}//${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@${MONGO_DB_HOST}/${MONGO_DB_NAME}?${MONGO_DB_PARAMS}`;
 	
 	public static async init(): Promise<MongoClient> {
-		console.log('connecting to mongodb ...');
 		
 		if (!Mongo.conn) {
+			console.log('connecting to mongodb ...');
 			
 			const client = new MongoClient(Mongo.URI, {
 				rejectUnauthorized: false,
