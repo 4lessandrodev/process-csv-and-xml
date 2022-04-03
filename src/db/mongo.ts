@@ -12,9 +12,13 @@ export class Mongo {
 	public static async init(): Promise<MongoClient> {
 		console.log('connecting to mongodb ...');
 		
-		if (Mongo.conn === null) {
+		if (!Mongo.conn) {
 			
-			const client = new MongoClient(`mongodb+srv://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@${MONGO_DB_HOST}/${MONGO_DB_NAME}?ssl=true&authSource=admin&w=majority`, { rejectUnauthorized: false, loggerLevel: 'debug' });
+			const client = new MongoClient(`mongodb+srv://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@${MONGO_DB_HOST}/${MONGO_DB_NAME}?ssl=true&authSource=admin&w=majority`, {
+				rejectUnauthorized: false,
+				loggerLevel: 'debug',
+				keepAlive: true
+			});
 			
 			const conn = await client.connect();
 
