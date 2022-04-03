@@ -75,3 +75,9 @@ GET http://localhost:3000/upload
 - You can provide an file from uploaded
 
 Any question feel free to message me [Linkedin](https://www.linkedin.com/in/alessandro-l-menezes-57906b71/)
+
+
+#### References
+
+[node doc](https://nodejs.org/docs/latest-v15.x/api/stream.html#stream_event_pipe)
+[node-js-stream](https://www.geeksforgeeks.org/node-js-stream-pipeline-method/)
