@@ -1,8 +1,17 @@
 # Process csv and xml files
 
 ## Process and save data to mongo
+### The challenge
+
+The user can upload two different types of files. xml or csv.
+Both files contain the same types of content, but represented according to their respective format.
+The system allows the user to upload either of these two files.
+The system should process the two files and normalize them to json format.
+When normalizing, the user will inform if he wants to save the result locally or in a database in the cloud.
 
 Read file, transform data and save to local or to mongo atlas
+
+<img src="./stream.jpg" width="100%" alt="example">
 
 ### How to run this project
 
