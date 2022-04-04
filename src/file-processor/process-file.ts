@@ -4,7 +4,7 @@ import { pipeline, Transform, TransformCallback, Writable } from 'stream';
 import convertXmlToJson from "../utils/convert-xml-to-json";
 import convertCsvToJson from "../utils/convert-csv-to-json";
 import { IResult } from "../interfaces";
-import Mongo from "../db/mongo";
+import Mongo, { MONGO_DB_COLLECTION, MONGO_DB_NAME } from "../db/mongo";
 import { randomBytes } from "crypto";
 import { resolve } from "path";
 
@@ -43,11 +43,11 @@ export const processFile = async (fileStream: ReadStream, destination: 'Local' |
 				}))
 				
 				conn
-					.db(process.env.MONGO_DB_NAME)
-					.collection('transactions')
+					.db(MONGO_DB_NAME)
+					.collection(MONGO_DB_COLLECTION)
 					.bulkWrite(command);
 				
-				callback();
+				callback && callback();
 				return true;
 			}
 		});
@@ -55,19 +55,23 @@ export const processFile = async (fileStream: ReadStream, destination: 'Local' |
 		const transformFile = new Transform({
 			async transform(chunk: string, _encoding: BufferEncoding, callback: TransformCallback): Promise<void> {
 		
-				const isXML = chunk.toString().includes('<Transactions>');
+				const bufferAsString = chunk.toString();
+				const isXML = bufferAsString.includes('<Transactions>');
+				const isCSV = bufferAsString.includes('","')
 				
 				if (isXML) {
 					
-					const xml = chunk.toString();
+					const xml = bufferAsString;
 		
 					const result = await convertXmlToJson(xml);
 					
 					callback(null, JSON.stringify(result));
 					
-				} else {
+				} else if (isCSV){
 					
-					const result = await convertCsvToJson(chunk.toString());
+					const csv = bufferAsString;
+
+					const result = await convertCsvToJson(csv);
 					
 					callback(null, JSON.stringify(result));
 				}
@@ -75,7 +79,7 @@ export const processFile = async (fileStream: ReadStream, destination: 'Local' |
 			}
 		});
 		
-		const isLocal = destination === 'Local';
+		const isLocal = destination.toUpperCase() === 'LOCAL';
 		const save = isLocal ? writeOnLocal : writeOnMongo;
 
 		await pipelineAsync(
