@@ -37,7 +37,7 @@ PAYLOAD
 the get route find documents on mongodb
 
 ```
-GET http://localhost:3000/upload
+GET http://localhost:3000/upload?limit=2
 ```
 ```json
 {
