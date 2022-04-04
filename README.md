@@ -81,7 +81,7 @@ GET http://localhost:3000/upload?limit=2
 ### Use on your project
 - Copy the files to your project 
 - Call the function `processFileService`
-- You can provide an file from uploaded
+- You can provide a file from uploaded
 
 Any question feel free to message me [Linkedin](https://www.linkedin.com/in/alessandro-l-menezes-57906b71/)
 

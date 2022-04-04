@@ -6,7 +6,7 @@ export const MONGO_DB_HOST = process.env.MONGO_DB_HOST;
 export const MONGO_DB_NAME = process.env.MONGO_DB_NAME ?? 'test';
 export const MONGO_DB_COLLECTION = process.env.MONGO_DB_COLLECTION ?? 'transactions';
 export const MONGO_DB_PREFIX = process.env.MONGO_DB_PREFIX ?? 'mongodb:';
-export const MONGO_DB_PARAMS = MONGO_DB_PREFIX === 'mongodb:+srv' ? process.env.MONGO_DB_PARAMS : '';
+export const MONGO_DB_PARAMS = MONGO_DB_PREFIX === 'mongodb:+srv' ? process.env.MONGO_DB_PARAMS : 'authSource=admin';
 
 export class Mongo {
 	protected static conn: MongoClient | null = null;
